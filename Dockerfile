@@ -21,14 +21,39 @@
 #            docker images day12-agent:prod     # xem dung lượng
 # ═══════════════════════════════════════════════════════════════════
 
-FROM python:3.11
+# ── Stage 1: Builder ────────────────────────────────────────
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+# Copy requirements TRƯỚC → Docker cache layer này
+# Sửa code thì không phải cài lại thư viện
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# ── Stage 2: Runtime ────────────────────────────────────────
+FROM python:3.11-slim AS runtime
 
 WORKDIR /app
 
-COPY . .
+# Copy KẾT QUẢ từ builder, không mang theo compiler
+COPY --from=builder /install /usr/local
 
-RUN pip install -r requirements.txt
+# Tạo user thường — KHÔNG chạy bằng root
+RUN useradd --create-home --uid 10001 appuser
+
+# Copy source code
+COPY app ./app
+COPY utils ./utils
+
+# Chuyển sang user thường
+USER appuser
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+    CMD python -c "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:' + os.getenv('PORT', '8000') + '/health').read()" || exit 1
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Đọc PORT từ biến môi trường — cloud tự gán cổng
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
