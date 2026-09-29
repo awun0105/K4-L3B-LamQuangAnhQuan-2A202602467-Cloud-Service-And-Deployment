@@ -10,17 +10,17 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Họ và tên | (điền họ tên) |
-| Mã học viên | (điền mã học viên) |
-| Repo | (điền link repo K4-L3B-DAY12-HoVaTen-MSSV-CloudServicesAndDeployment) |
+| Họ và tên | Lâm Quang Anh Quân |
+| Mã học viên | 2A202602467 |
+| Repo | https://github.com/awun0105/K4-L3B-LamQuangAnhQuan-2A202602467-Cloud-Service-And-Deployment |
 
 ## Service
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | https://TODO-thay-bang-url-that.up.railway.app |
-| Platform | Railway / Render / Cloud Run — (điền platform bạn dùng) |
-| Ngày deploy | (điền ngày) |
+| Public URL | Chưa deploy — cần URL HTTPS thật từ platform |
+| Platform | Chưa chọn — cập nhật sau khi tự tạo service |
+| Ngày deploy | Chưa deploy |
 
 ## Biến Môi Trường Đã Set Trên Cloud
 
@@ -28,12 +28,12 @@ Ghi tên biến và **nguồn giá trị**, không ghi giá trị:
 
 | Biến | Đã set | Ghi chú |
 |------|--------|---------|
-| `PORT` | ✅ | platform tự gán |
-| `AGENT_API_KEY` | ✅ | đặt trong dashboard, không nằm trong repo |
-| `REDIS_URL` | ✅ | (điền: Redis add-on của platform / Upstash / ...) |
-| `RATE_LIMIT_PER_MINUTE` | ✅ | 10 |
-| `MONTHLY_BUDGET_USD` | ✅ | 10.0 |
-| `LOG_LEVEL` | ✅ | INFO |
+| `PORT` | Chưa xác nhận | platform tự gán |
+| `AGENT_API_KEY` | Chưa set | đặt trong dashboard, không nằm trong repo |
+| `REDIS_URL` | Chưa set | liên kết với Redis của platform |
+| `RATE_LIMIT_PER_MINUTE` | Chưa set | 10 |
+| `MONTHLY_BUDGET_USD` | Chưa set | 10.0 |
+| `LOG_LEVEL` | Chưa set | INFO |
 
 ## Lệnh Kiểm Tra
 
@@ -73,7 +73,7 @@ done; echo
 Dán output của các lệnh trên vào đây:
 
 ```
-(điền output)
+Chưa có output từ bản deploy. Sau khi deploy, dán kết quả curl thật vào đây.
 ```
 
 ## Ảnh Chụp Màn Hình
@@ -97,5 +97,5 @@ Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng
 5. Ghi rõ lý do không deploy được vào phần dưới đây:
 
 ```
-(điền lý do nếu dùng phương án dự phòng, ngược lại xóa mục này)
+Chưa dùng phương án dự phòng. Nếu dùng, ghi lý do thực tế tại đây.
 ```
