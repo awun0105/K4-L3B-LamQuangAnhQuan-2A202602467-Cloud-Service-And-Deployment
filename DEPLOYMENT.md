@@ -12,7 +12,7 @@
 |-----|----------|
 | Họ và tên | Lâm Quang Anh Quân |
 | Mã học viên | 2A202602467 |
-| Repo | https://github.com/awun0105/K4-L3B-LamQuangAnhQuan-2A202602467-Cloud-Service-And-Deployment |
+| Repo | https://github.com/awun0105/K4-L3B-DAY12-LamQuangAnhQuan-2A202602467-Cloud-Service-And-Deployment |
 
 ## Service
 
