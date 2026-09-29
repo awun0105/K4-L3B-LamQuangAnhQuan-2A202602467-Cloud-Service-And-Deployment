@@ -18,9 +18,9 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | Chưa deploy — cần URL HTTPS thật từ platform |
-| Platform | Chưa chọn — cập nhật sau khi tự tạo service |
-| Ngày deploy | Chưa deploy |
+| Public URL | Chưa có; bản local chạy tại `http://127.0.0.1:18080` |
+| Platform | Docker Compose (local fallback); Railway/Render chưa triển khai |
+| Ngày deploy | Chưa deploy cloud; chạy local ngày 2026-09-29 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
 
@@ -73,7 +73,11 @@ done; echo
 Dán output của các lệnh trên vào đây:
 
 ```
-Chưa có output từ bản deploy. Sau khi deploy, dán kết quả curl thật vào đây.
+Local fallback ngày 2026-09-29:
+GET /health → 200 {"status":"ok","service":"day12-agent","version":"1.0.0"}
+GET /ready → 200 {"status":"ready","redis":true}
+POST /ask không có X-API-Key → 401
+Chưa có output từ bản deploy cloud.
 ```
 
 ## Ảnh Chụp Màn Hình
@@ -97,5 +101,7 @@ Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng
 5. Ghi rõ lý do không deploy được vào phần dưới đây:
 
 ```
-Chưa dùng phương án dự phòng. Nếu dùng, ghi lý do thực tế tại đây.
+Chưa thực hiện deploy cloud; hiện dùng Docker Compose trên máy để kiểm tra CP5.
+Máy đã có dịch vụ khác dùng cổng 8000 và 6379, nên stack lab dùng cổng host
+18080 và 16380 qua file Compose tạm; cổng trong container vẫn là 8000 và 6379.
 ```
