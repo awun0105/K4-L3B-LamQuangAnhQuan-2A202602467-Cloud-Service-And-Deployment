@@ -43,6 +43,13 @@ class Settings(BaseSettings):
     # TODO (CP1): khai báo 6 trường theo bảng trên, ví dụ:
     #     port: int = 8000
     #     agent_api_key: str
+    port: int = 8000                                    # cổng HTTP
+    agent_api_key: str                                  # BẮT BUỘC, KHÔNG có mặc định
+    redis_url: str = "redis://localhost:6379/0"          # URL kết nối Redis
+    rate_limit_per_minute: int = 10                     # giới hạn request/phút/user
+    monthly_budget_usd: float = 10.0                    # ngân sách tối đa/user/tháng
+    log_level: str = "INFO"                             # mức log
+
 
 
 @lru_cache(maxsize=1)
